@@ -71,6 +71,23 @@ for line in fh:
     # track the counts by week of the year
     COUNT_REQUESTS_WEEK[r_date.isocalendar()[1]] += 1
 
+#write out the log files separate into month files
+print("---------------------------------------------------")
+print("Splitting Log File Entries Into Separate Log Files:")
+print("---------------------------------------------------")
+for key, val in STORE_REQUESTS_MONTH.items():
+    # so inside this loop, the key is the month digit and the val is
+    #   the list of all lines from the log that belong to that month
+    mon_fname = "{}.log".format(key)
+    print("  Creating log file: {0}/{1}".format(os.path.dirname(sys.argv[0]), mon_fname))
+    mon_fh = open(mon_fname, 'w')
+    mon_fh.writelines(val)
+    mon_fh.close()
+print("")
+file_count = Counter(REQUESTED_FILES)
+most_requested_file = file_count.most_common(1)
+least_requested_file_list = [k for k, v in file_count.items() if v == 1]
+
 print("--------------------")
 print("Log File Statistics:")
 print("--------------------")
