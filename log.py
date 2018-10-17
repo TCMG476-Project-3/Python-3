@@ -52,6 +52,17 @@ for line in fh:
         continue
     # increment the total counter
     total_count += 1
+    
+    # check the status code
+    if parts[6][0] == '3':
+        s3_count += 1
+
+    if parts[6][0] == '4':
+        s4_count += 1
+
+    # Only add files that were actually found to the requested files object.
+    if parts[6][0] != '4' and parts[6][0] != '3':
+        REQUESTED_FILES.append(parts[4])
 
     # parse the log file line date into a date object
     r_date = datetime.strptime(parts[1], "%d/%b/%Y")
