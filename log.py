@@ -48,10 +48,10 @@ for line in fh:
         #print("Line {0} is not in expected format, adding to error count.".format(line))
         ERRORS.append(line)
         continue
- # increment the total counter
+    # increment the total counter
     total_count += 1
 
-# parse the log file line date into a date object
+    # parse the log file line date into a date object
     r_date = datetime.strptime(parts[1], "%d/%b/%Y")
     if first_date == '1/1/1900':
         first_date = r_date
