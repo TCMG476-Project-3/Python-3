@@ -30,3 +30,21 @@ local_file, headers = urlretrieve(URL_PATH,LOCAL_FILE)
 print("\nFile{} saved to directory.".format(LOCAL_FILE))
 
 fh = open(LOCAL_FILE)
+
+# prepare the REgEx
+regex = re.compile(".*\[([^:]*):(.*) \-[0-9]{4}\] \"([A-Z]+) (.+?)( HTTP.*\"|\") ([2-5]0[0-9]) .*")
+
+# Let the user know we are parsing the log file.
+print("")
+print("Parsing {0}/{1}".format(os.path.dirname(sys.argv[0]), LOCAL_FILE))
+print("")
+# Process each line of the file
+for line in fh:
+    # Splitting the line into distinct data points
+    parts = regex.split(line)
+
+    # Validating the current line appears to be in proper log format.
+    if not parts or len(parts) < 7:
+        #print("Line {0} is not in expected format, adding to error count.".format(line))
+        ERRORS.append(line)
+        continue
