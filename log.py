@@ -57,6 +57,19 @@ for line in fh:
     if first_date == '1/1/1900':
         first_date = r_date
 
+    # track the counts by month
+    COUNT_REQUESTS_MONTH[calendar.month_name[r_date.month]] += 1
+    STORE_REQUESTS_MONTH[calendar.month_name[r_date.month]].append(line)
+
+    # track the counts by month
+    COUNT_REQUESTS_DAY[r_date.day] += 1
+
+    # track the counts by day of the week
+    COUNT_REQUESTS_WEEKDAY[calendar.day_name[r_date.weekday()]] += 1
+
+    # track the counts by week of the year
+    COUNT_REQUESTS_WEEK[r_date.isocalendar()[1]] += 1
+
 print("--------------------")
 print("Log File Statistics:")
 print("--------------------")
