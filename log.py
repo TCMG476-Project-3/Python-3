@@ -48,3 +48,5 @@ for line in fh:
         #print("Line {0} is not in expected format, adding to error count.".format(line))
         ERRORS.append(line)
         continue
+ # increment the total counter
+    total_count += 1
