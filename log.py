@@ -50,3 +50,16 @@ for line in fh:
         continue
  # increment the total counter
     total_count += 1
+
+# parse the log file line date into a date object
+    r_date = datetime.strptime(parts[1], "%d/%b/%Y")
+    if first_date == '1/1/1900':
+        first_date = r_date
+
+print("--------------------")
+print("Log File Statistics:")
+print("--------------------")
+print("Start Day: {}".format(first_date))
+print("Total requests: {}".format(total_count))
+print("End Day: {}".format(r_date))
+print("")
