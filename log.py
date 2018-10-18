@@ -99,6 +99,10 @@ file_count = Counter(REQUESTED_FILES)
 most_requested_file = file_count.most_common(1)
 least_requested_file_list = [k for k, v in file_count.items() if v == 1]
 
+for key, value in COUNT_REQUESTS_WEEK.items():
+        #print("Week {0}: {1}".format(key, value))
+        TOTAL_WEEK_REQUESTS = TOTAL_WEEK_REQUESTS + value
+
 print("--------------------")
 print("Log File Statistics:")
 print("--------------------")
