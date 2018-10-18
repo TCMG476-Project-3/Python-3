@@ -4,6 +4,7 @@ import sys		#System-specific parameters and functions
 from datetime import datetime
 import calendar
 from urllib.request import urlretrieve 	#Module for fetching URLs
+from collections import Counter
 
 
 URL_PATH = 'https://s3.amazonaws.com/tcmg476/http_access_log'
