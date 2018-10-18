@@ -28,7 +28,7 @@ total_count = 0
 TOTAL_WEEK_REQUESTS = 0
 
 if not os.path.isfile(LOCAL_FILE):
-	print("Downloading log file from: {0} to {1}/{2}".format(URL_PATH,os.path.dirname(sys.argv[0]),LOCAL_FILE))
+    print("Downloading log file from: {0} to {1}/{2}".format(URL_PATH,os.path.dirname(sys.argv[0]),LOCAL_FILE))
     local_file, headers = urlretrieve(URL_PATH,LOCAL_FILE)
     print("\nFile{} saved to directory.".format(LOCAL_FILE))
 
