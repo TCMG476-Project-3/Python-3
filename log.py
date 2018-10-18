@@ -103,6 +103,8 @@ for key, value in COUNT_REQUESTS_WEEK.items():
         #print("Week {0}: {1}".format(key, value))
         TOTAL_WEEK_REQUESTS = TOTAL_WEEK_REQUESTS + value
 
+#Print out all the info to the user
+
 print("--------------------")
 print("Log File Statistics:")
 print("--------------------")
